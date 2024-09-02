@@ -97,15 +97,15 @@ export default function Countdown() {
 
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-red-100 dark:bg-red-900">
-            <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-md">
+            <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-4 w-full max-w-md">
                 <h1 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200 text-center">
-                    Countdown Timer
+                <b>Countdown Timer Developed by Ayaz Ahmed </b>
                 </h1>
                 <div className="flex items-center mb-6">
                     <Input
                         type="number"
                         id="duration"
-                        placeholder="Enter duration in seconds"
+                        placeholder="Please enter duration in seconds"
                         value={duration}
                         onChange={handleDurationChange}
                         className="flex-1 mr-4 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200"
@@ -113,40 +113,40 @@ export default function Countdown() {
                     <Button
                         onClick={handleSetDuration}
                         variant="outline"
-                        className="text-gray-800 dark:text-gray-200"
+                        className="text-blue-800 dark:text-blue-200"
                     >
-                        Set
+                        Set Timer
                     </Button>
                 </div>
-                <div className="text-6xl font-bold text-gray-800 dark:text-gray-200 mb-8 text-center">
+                <div className="text-6xl font-bold text-blue-800 dark:text-blue-200 mb-8 text-center">
                     {formatTime(timeleft)}
                 </div>
                 <div className="flex justify-center gap-4">
                     <Button
                         onClick={handleStart}
                         variant="outline"
-                        className="text-gray-800 dark:text-gray-200"
+                        className="text-blue-800 dark:text-blue-200"
                     >
                         {isPaused ? "Resume" : "Start"}
                     </Button>
                     <Button
                         onClick={handlePause}
                         variant="outline"
-                        className="text-gray-800 dark:text-gray-200"
+                        className="text-blue-800 dark:text-blue-200"
                     >
                         Pause
                     </Button>
                     <Button
                         onClick={handleReset}
                         variant="outline"
-                        className="text-gray-800 dark:text-gray-200"
+                        className="text-blue-800 dark:text-blue-200"
                     >
                         Reset
                     </Button>
                     <Button
                         onClick={handleClear}
                         variant="outline"
-                        className="text-gray-800 dark:text-gray-200"
+                        className="text-blue-800 dark:text-blue-200"
                     >
                         Clear
                     </Button>
