@@ -115,52 +115,39 @@ export default function WeatherWidget() {
     }
 
     return (
-        <div className="flex justify-center items-center h-screen">
-            {/* Center the card within the screen */}
-            <Card className="w-full max-w-md mx-auto text-center">
-                {/* Card header with title and description */}
+
+        <div className="flex justify-center items-center h-screen bg-gray-100">
+
+            <Card className="w-[600px] h-[400px] mx-auto text-center p-12 bg-white shadow-lg">
                 <CardHeader>
-                    <CardTitle>Weather Widget</CardTitle>
+                    <CardTitle>Weather App</CardTitle>
                     <CardDescription>
-                        Search for the current weather conditions in your city.
+                        <b> Search for the current weather. </b>
                     </CardDescription>
                 </CardHeader>
-                {/* Card content including the search form and weather display */}
                 <CardContent>
-                    {/* Form to input and submit the location */}
                     <form onSubmit={handlesearch} className="flex items-center gap-2">
                         <Input
                             type="text"
                             placeholder="Enter a city name"
                             value={location}
-                            onChange={
-                                (e: ChangeEvent<HTMLInputElement>) =>
-                                    setLocation(e.target.value) // Update location state on input change
-                            }
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => setLocation(e.target.value)}
                         />
                         <Button type="submit" disabled={isLoading}>
-                            {isLoading ? "Loading..." : "Search"}{" "}
-                            {/* Show "Loading..." text while fetching data */}
+                            {isLoading ? "Loading..." : "Search"}
                         </Button>
                     </form>
-                    {/* Display error message if any */}
                     {error && <div className="mt-4 text-red-500">{error}</div>}
-                    {/* Display weather data if available */}
                     {weather && (
                         <div className="mt-4 grid gap-2">
-                            {/* Display temperature message with icon */}
                             <div className="flex items-center gap-2">
-                                <div className="flex items-center gap-2">
-                                    <ThermometerIcon className="w-6 h-6" />
-                                    {gettemperaturemessage(weather.temperature, weather.unit)}
-                                </div>
+                                <ThermometerIcon className="w-6 h-6" />
+                                {gettemperaturemessage(weather.temperature, weather.unit)}
                             </div>
-                            {/* Display weather description message with icon */}
                             <div className="flex items-center gap-2">
                                 <CloudIcon className="w-6 h-6 " />
                                 <div>{getWeatherMessage(weather.description)}</div>
                             </div>
-                            {/* Display location message with icon */}
                             <div className="flex items-center gap-2">
                                 <MapPinIcon className="w-6 h-6 " />
                                 <div>{getLocationMessage(weather.location)}</div>
@@ -170,6 +157,7 @@ export default function WeatherWidget() {
                 </CardContent>
             </Card>
         </div>
+
     );
 }
 
