@@ -116,26 +116,38 @@ export default function WeatherWidget() {
 
     return (
 
-        <div className="flex justify-center items-center h-screen bg-gray-100">
+        
+        <div className="flex justify-center items-center h-screen bg-light-gray-500">
+           <div className="text-center mb-8 absolute top-6 left-0 right-0">
+               <h1 className="mt-2 text-lg text-black"><b> A Weather Widget App Developed by Ayaz Ahmed 
+                </b>
+               </h1>
+    </div>
 
-            <Card className="w-[600px] h-[400px] mx-auto text-center p-12 bg-white shadow-lg">
+            <Card className="w-[550px] h-[450px] mx-auto text-center p-12 bg-gray-200">
                 <CardHeader>
-                    <CardTitle>Weather App</CardTitle>
-                    <CardDescription>
-                        <b> Search for the current weather. </b>
+                        <CardTitle className="text-black items-center">Weather App</CardTitle>
+                    <CardDescription className="text-black items-center">
+                        <b> Search for the current weather in your city. </b>
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <form onSubmit={handlesearch} className="flex items-center gap-2">
+                    <form onSubmit={handlesearch} className="w-160 items-center gap-3">
+                    <div className="flex flex-col space-y-2"> 
                         <Input
                             type="text"
                             placeholder="Enter a city name"
                             value={location}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => setLocation(e.target.value)}
+                            className="flex-1"                     
                         />
-                        <Button type="submit" disabled={isLoading}>
-                            {isLoading ? "Loading..." : "Search"}
-                        </Button>
+                        <Button type="submit" 
+                         className={`bg-blue-500 hover:bg-gray-600 text-white font-bold rounded ${
+                            isLoading ? "opacity-100 cursor-not-allowed" : ""
+                        } w-auto py-2 px-4 text-sm`}
+                        disabled={isLoading}>
+                            {isLoading ? "Searching..." : "Get Weather"}
+                        </Button> </div>
                     </form>
                     {error && <div className="mt-4 text-red-500">{error}</div>}
                     {weather && (
